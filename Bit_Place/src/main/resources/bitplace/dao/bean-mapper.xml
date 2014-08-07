@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bean-mapper">
+    <!-- Members -->
+    <resultMap type="bean" id="beanMap">
+    <id column="memno" property="memno"/>
+    <id column="titleno" property="titleno"/>
+    
+    <result column="gitid" property="gitid"/>
+    <result column="email" property="email"/>
+    <result column="photo" property="photo"/>
+    <result column="email_serial" property="email_serial"/>
+    <result column="name" property="name"/>
+    
+    
+    <!-- Groups -->
+    <result column="groupname" property="groupname"/>
+    <result column="groupno" property="groupno"/>
+    
+    
+    <!-- Titles -->
+    <result column="title" property="title"/>
+    <result column="titleno" property="titleno"/>
+    
+    
+    <!-- Contents -->
+   <result column="git_repository" property="git_repository"/>
+   <result column="git_id" property=  "git_id"/>
+   <result column="git_pwd" property=  "git_pwd"/>
+    
+    <result column="content_title" property=  "content_title"/>
+    <result column ="edited_date" property="edited_date"/>
+    <result column="created_date" property="created_date"/>
+    <result column="contentno" property="contentno"/>
+    <result column="content_leader" property="content_leader"/>
+    <result column="content" property="content"/>    
+    
+    
+    </resultMap>
+  
+  <select id="firstLogin" parameterType="java.lang.Integer" resultMap="beanMap">
+  	SELECT GROUPNAME, GROUPNO, CREATED_DATE FROM BIT_GROUP WHERE CREATOR = #{no} LIMIT 1;
+  </select>   
+    
+  <select id="group" parameterType="java.lang.Integer" resultMap="beanMap">
+	SELECT GROUPNAME, GROUPNO, CREATED_DATE FROM BIT_GROUP WHERE CREATOR = #{no};
+  </select>  
+  
+  <select id="title" parameterType="java.lang.Integer" resultMap="beanMap">
+	SELECT TITLE, TITLENO FROM BIT_TITLE WHERE GROUPNO = #{group};	
+  </select>
+  
+  <select id="sub" parameterType="java.lang.Integer" resultMap="beanMap">
+        SELECT C.CONTENTNO, C.MEMNO, C.CONTENT_TITLE, C.CONTENT, C.EDITED_DATE,  
+        C.GIT_REPOSITORY, C.GIT_ID, C.GIT_PWD
+        FROM BIT_TITLE T JOIN BIT_CONTENT C 
+        ON T.TITLENO = C.TITLENO WHERE GROUPNO = #{group};
+  </select>
+  
+  <select id="selectedGroup" parameterType="java.lang.Integer" resultMap="beanMap">
+      SELECT GROUPNO, GROUPNAME FROM BIT_GROUP WHERE GROUPNO = #{group}
+  </select>
+  
+  <select id="contentDisplay" parameterType="java.lang.Integer" resultMap="beanMap">      
+      SELECT C.GIT_REPOSITORY, C.GIT_ID, C.GIT_PWD, C.CONTENTNO, C.CONTENT_LEADER, C.EDITED_DATE, 
+      C.MEMNO, M.NAME, M.EMAIL, C.CONTENT_TITLE, C.CONTENT FROM BIT_CONTENT C 
+      JOIN BIT_MEMBERS M ON C.MEMNO = M.MEMNO 
+      WHERE CONTENTNO=#{contentno};
+  </select>
+  
+  <select id="contentDisplaybyTitle" parameterType="java.lang.Integer" resultMap="beanMap">
+      SELECT CONTENTNO, MEMNO, CONTENT_TITLE, CONTENT, EDITED_DATE,
+      GIT_REPOSITORY, GIT_ID, GIT_PWD
+      FROM BIT_CONTENT WHERE TITLENO= #{titleno};
+  </select>
+</mapper>
