@@ -1,0 +1,103 @@
+SELECT * FROM shindb.BIT_MEMBERS;
+
+INSERT INTO `shindb`.`BIT_MEMBERS` (`MNO`, `EMAIL`, `PWD`, `GIT_ID`, `GIT_PWD`, `NAME`) VALUES ('1', 'test1@test.com', '1', 'jungwoonshin', 'wjddns1025', 'test1');
+INSERT INTO `shindb`.`BIT_MEMBERS` (`EMAIL`, `PWD`, `GIT_ID`, `GIT_PWD`, `NAME`) VALUES ('test2@test.com', '1', 'maverickjin8', 'snorlax1', 'test2');
+INSERT INTO `shindb`.`BIT_MEMBERS` (`EMAIL`, `PWD`, `GIT_ID`, `GIT_PWD`, `NAME`) VALUES ('test3@test.com', '1', 'maverickjin8', 'snorlax1', 'test3');
+INSERT INTO `shindb`.`BIT_MEMBERS` (`EMAIL`, `PWD`, `GIT_ID`, `GIT_PWD`, `NAME`) VALUES ('test4@test.com', '1', 'maverickjin8', 'snorlax1', 'test4');
+INSERT INTO `shindb`.`BIT_MEMBERS` (`EMAIL`, `PWD`, `GIT_ID`, `GIT_PWD`, `NAME`) VALUES ('test5@test.com', '1', 'maverickjin8', 'snorlax1', 'test5');
+
+SELECT * FROM shindb.BIT_GROUP;
+
+INSERT INTO `shindb`.`BIT_GROUP` (`GROUPNAME`) VALUES ('class1');
+INSERT INTO `shindb`.`BIT_GROUP` (`GROUPNAME`) VALUES ('class2');
+INSERT INTO `shindb`.`BIT_GROUP` (`GROUPNAME`) VALUES ('class3');
+INSERT INTO `shindb`.`BIT_GROUP` (`GROUPNAME`) VALUES ('class4');
+INSERT INTO `shindb`.`BIT_GROUP` (`GROUPNAME`) VALUES ('class5');
+INSERT INTO `shindb`.`BIT_GROUP` (`GROUPNAME`) VALUES ('class6');
+INSERT INTO `shindb`.`BIT_GROUP` (`GROUPNAME`) VALUES ('class7');
+INSERT INTO `shindb`.`BIT_GROUP` (`GROUPNAME`) VALUES ('class8');
+INSERT INTO `shindb`.`BIT_GROUP` (`GROUPNAME`) VALUES ('class9');
+INSERT INTO `shindb`.`BIT_GROUP` (`GROUPNAME`) VALUES ('class10');
+
+SELECT * FROM shindb.BIT_GROUP_MEMBERS;
+
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('2', '1');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('4', '1');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('6', '1');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('8', '1');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('10', '1');
+
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('1', '2');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('3', '2');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('5', '2');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('7', '2');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('9', '2');
+
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('1', '3');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('2', '3');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('3', '3');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('4', '3');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('5', '3');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('6', '3');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('7', '3');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('8', '3');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('9', '3');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('10', '3');
+INSERT INTO `shindb`.`BIT_GROUP_MEMBERS` (`GROUPNO`, `MNO`) VALUES ('5', '5');
+
+
+
+
+
+
+
+
+SELECT NAME, GROUPNO FROM shindb.BIT_TITLE;
+
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제1', '1');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제2', '1');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제3', '1');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제4', '1');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제1', '2');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제2', '2');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제1', '3');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제1', '4');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제1', '5');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제1', '6');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제1', '7');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제1', '8');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제1', '9');
+INSERT INTO `shindb`.`BIT_TITLE` (`NAME`, `GROUPNO`) VALUES ('과제1', '10');
+
+SELECT MNO,TITLENO,GROUPNO,CONTENT,CONTENT_TITLE FROM shindb.BIT_CONTENT;
+
+
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('1', '1', '1', '1A내용', '1A질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('1', '1', '1', '1B', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('1', '1', '1', '1C', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('2', '2', '2', '2A', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('2', '3', '2', '2B', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('2', '4', '2', '2C', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('2', '1', '2', '2D', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('2', '2', '2', '3E', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('3', '3', '4', '3A', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('5', '4', '3', '5A', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('5', '1', '1', '5B', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('5', '2', '3', '5C', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('5', '3', '5', '5D', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('5', '2', '7', '5E', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('5', '4', '9', '5F', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('5', '5', '1', '5G', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('5', '2', '2', '5H', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('5', '6', '3', '5I', '질문');
+INSERT INTO `shindb`.`BIT_CONTENT` (`MNO`, `TITLENO`, `GROUPNO`, `CONTENT`, `CONTENT_TITLE`) VALUES ('5', '7', '4', '5J', '질문');
+ 
+
+UPDATE `shindb`.`BIT_CONTENT` SET `GIT_REPOSITORY`='testrepo1', `GIT_ID`='maverickjin8', `GIT_PWD`='snorlax1' WHERE `CONTENTNO`='3';
+UPDATE `shindb`.`BIT_CONTENT` SET `GIT_REPOSITORY`='testrepo1', `GIT_ID`='maverickjin8', `GIT_PWD`='snorlax1' WHERE `CONTENTNO`='4';
+UPDATE `shindb`.`BIT_CONTENT` SET `GIT_REPOSITORY`='testrepo1', `GIT_ID`='maverickjin8', `GIT_PWD`='snorlax1' WHERE `CONTENTNO`='5';
+UPDATE `shindb`.`BIT_CONTENT` SET `GIT_REPOSITORY`='testrepo1', `GIT_ID`='maverickjin8', `GIT_PWD`='snorlax1' WHERE `CONTENTNO`='6';
+UPDATE `shindb`.`BIT_CONTENT` SET `GIT_REPOSITORY`='testrepo1', `GIT_ID`='maverickjin8', `GIT_PWD`='snorlax1' WHERE `CONTENTNO`='7';
+UPDATE `shindb`.`BIT_CONTENT` SET `GIT_REPOSITORY`='testrepo1', `GIT_ID`='maverickjin8', `GIT_PWD`='snorlax1' WHERE `CONTENTNO`='8';
+UPDATE `shindb`.`BIT_CONTENT` SET `GIT_REPOSITORY`='testrepo1', `GIT_ID`='maverickjin8', `GIT_PWD`='snorlax1' WHERE `CONTENTNO`='9';
+UPDATE `shindb`.`BIT_CONTENT` SET `GIT_ID`='', `GIT_PWD`='' WHERE `CONTENTNO`='10';
