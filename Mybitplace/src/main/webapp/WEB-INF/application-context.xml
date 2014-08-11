@@ -11,21 +11,21 @@
         http://www.springframework.org/schema/jee
         http://www.springframework.org/schema/jee/spring-jee-4.0.xsd">
 
-	<context:component-scan base-package="java56">
+	<context:component-scan base-package="com.shin">
 	   <!-- 페이지 컨트롤러는 프런트 컨트롤러에서 관리하기 때문에 제외함 -->
-	   <context:exclude-filter type="regex" expression="java56.controller.*"/>
+	   <context:exclude-filter type="regex" expression="com.shin.controller.*"/>
 	</context:component-scan>
 
   <!-- 톰캣 서버의 설정된 JNDI DataSource 가져오기 -->
-  <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/bitdb"/>
+  <jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/shindb"/>
 
   <!-- SqlSessionFactoryBean으로부터 SqlSessionFactory 객체 만들기 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="mapperLocations" 
-		          value="classpath*:java56/dao/*-mapper.xml" />
+		          value="classpath*:com/shin/dao/*-mapper.xml" />
 		<property name="typeAliasesPackage" 
-		          value="java56.vo" />
+		          value="com.shin.vo" />
 	</bean>
 
   <!-- 트랜잭션 관리자 설정 -->

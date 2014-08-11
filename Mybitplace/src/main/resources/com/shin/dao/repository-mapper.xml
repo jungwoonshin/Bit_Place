@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shin.RepositoryDao">
+
+  <resultMap type="content" id="contentMap">
+    <id column="content_no" property="content_no"/>
+    <result column="edited_date" property="edited_date"/>
+    <result column="mno" property="mno"/>
+    <result column="participants" property="participants"/>
+    <result column="open_or_close" property="open_or_close"/>
+    <result column="validation" property="validation"/>
+    <result column="locker" property="locker"/>
+    <result column="title_no" property="title_no"/>
+    <result column="open_to" property="open_to"/>
+    <result column="content_title" property="content_title"/>
+    <result column="count" property="count"/>
+    <result column="edited_date_f" property="edited_date_f"/>
+    <result column="edited_date_l" property="edited_date_l"/>
+    <result column="content" property="content"/>
+    <result column="group_no" property="group_no"/>
+    <result column="git_repository" property="git_repository"/>
+    <result column="git_id" property="git_id"/>
+    <result column="git_pwd" property="git_pwd"/>
+    <result column="git_oauthtoken" property="git_oauthtoken"/>
+  </resultMap>
+
+
+	<select id="selectMno" parameterType="map" resultType="int">
+		select mno from bit_members where email = #{user_email} limit 1
+	</select>
+
+	<select id="selectClass" parameterType="map" resultType="map">
+		select groupname from bit_group where groupno in 
+		(select groupno from bit_group_members where mno=#{mno});
+	</select>
+	
+	<select id="selectContents" parameterType="map" resultMap="contentMap">
+		select * from bit_content where groupno = #{groupNo}; 
+	</select>
+
+
+
+
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

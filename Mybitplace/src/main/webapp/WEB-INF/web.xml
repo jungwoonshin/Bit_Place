@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
-	<display-name>web02t</display-name>
+	<display-name>Mybitplace</display-name>
 
   <!-- 스프링 ContextLoaderListener가 사용할 설정 파일의 경로 지정 -->
   <context-param>
