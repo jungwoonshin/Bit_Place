@@ -58,11 +58,6 @@ public class RepositoryControl {
 
 		return mv;
 	}
-	@RequestMapping
-	public String view(){				
-		return "/jsp/Main";
-	}	
-
 
 
 
