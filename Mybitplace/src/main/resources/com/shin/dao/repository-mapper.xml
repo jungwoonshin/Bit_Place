@@ -41,6 +41,10 @@
 	</select>
 
 
+	<select id="selectGroupNo" parameterType="map" resultType="int">
+		SELECT GROUPNO FROM BIT_GROUP_MEMBERS WHERE MNO=#{mno} ORDER BY GROUPNO ASC LIMIT 1;
+	</select>
+
 
 
 

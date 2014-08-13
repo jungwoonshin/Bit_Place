@@ -19,7 +19,7 @@ public class RepositoryDao {
 	public int selectMno(String user_email) throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			HashMap<String,Object> params = new HashMap<String,Object>();
+			HashMap<String,String> params = new HashMap<String,String>();
 			params.put("user_email", user_email);
 			return sqlSession.selectOne("com.shin.RepositoryDao.selectMno" , params);
 		} catch (Exception e) {
@@ -54,6 +54,19 @@ public class RepositoryDao {
 		} catch (Exception e) {
 			throw e;
 
+		} finally {
+			sqlSession.close();
+		}
+	}
+
+	public int selectGroupNo(int mno) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			HashMap<String,Integer> params = new HashMap<String,Integer>();
+			params.put("mno", mno);
+			return sqlSession.selectOne("com.shin.RepositoryDao.selectGroupNo" , params);
+		} catch (Exception e) {
+			throw e;
 		} finally {
 			sqlSession.close();
 		}
