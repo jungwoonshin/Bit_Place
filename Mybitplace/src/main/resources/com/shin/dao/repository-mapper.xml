@@ -44,6 +44,10 @@
 	<select id="selectGroupNo" parameterType="map" resultType="int">
 		SELECT GROUPNO FROM BIT_GROUP_MEMBERS WHERE MNO=#{mno} ORDER BY GROUPNO ASC LIMIT 1;
 	</select>
+	
+	<select id="selectOneContent" parameterType="int" resultMap="contentMap">
+		SELECT * FROM BIT_CONTENT where content_no=#{value};
+	</select>
 
 
 

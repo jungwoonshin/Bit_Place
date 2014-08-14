@@ -72,6 +72,17 @@ public class RepositoryDao {
 		}
 	}
 
+	public List<Content> selectOneContent(int content_no) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			return sqlSession.selectList("com.shin.RepositoryDao.selectOneContent" , content_no);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			sqlSession.close();
+		}
+	}
+
 
 
 

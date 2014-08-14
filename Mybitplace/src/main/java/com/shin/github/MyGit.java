@@ -155,6 +155,31 @@ public class MyGit {
 		return content;
 	}
 	
+	public static JsonArray getMainTree(String username, String reponame){
+		Github github = new RtGithub();
+		Repo repo = github.repos().get(
+				new Coordinates.Simple(username,reponame)
+		);
+		RepoCommits commits = repo.commits();
+		final Iterator<RepoCommit> iterator =
+				commits.iterate(
+						new ArrayMap<String, String>()
+						).iterator();
+		String commit_sha=null;
+		if (iterator.hasNext()) {
+			commit_sha=iterator.next().sha();
+		}
+		String sha_tree=null;
+		JsonArray jsonArrayTree =null;
+		try {
+			sha_tree= repo.git().commits().get(commit_sha).json().getJsonObject("tree").getString("sha");
+			jsonArrayTree= repo.git().trees().get(sha_tree).json().getJsonArray("tree");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return jsonArrayTree;
+	}
+	
 	public static void main(String[] args) throws Exception {
 		
 		
