@@ -5,44 +5,65 @@
 <title>Welcome to Git Main</title>
 
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
 
-
+<script src="http://www.datejs.com/build/date.js" type="text/javascript"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="http://www.datejs.com/build/date.js" type="text/javascript"></script>
+<script src="../js/jquery-ui.js"></script>
 <script type="text/javascript" src="main.js"></script>
+
+<style type="text/css">
+@CHARSET "UTF-8";
+
+#main {
+	width: 800px;
+	margin: 0px auto; /*위아래   좌우*/
+}
+
+#repoTable tr {
+	height: 30px;
+	width: 30px;
+}
+
+tr:hover td {
+  background-color: #FFFAF0; color: #000;
+}
+</style>
+
+
+
+
+
+
+
+
 
 </head>
 <body>
-<h1> 리파지토리(컨텐츠) 목록 </h1>
 
-<table id="repoTable" class="table table-striped">
-<tr>
-  <th>게시판번호</th>
-  <th>수정일</th>
-  <th>회원번호</th> 
-  <th>참가자</th> 
-  <th>개방여부</th> 
-  <th>라커</th> 
-  <th>타이틀번호</th> 
-  <th>개방대상</th>
-  <th>게시판제목</th>
-  <th>조회수</th>
-  <th>팔로워수정최근날짜</th>
-  <th>리더수정최근날짜</th>
-  <th>컨텐트</th>
-  <th>그룹번호</th>
-  <th>기트리파지토리</th>
-  <th>기트아이디</th>
-  <th>기트비번</th>
-  <th>기트토큰</th>
-</tr>
-</table>
 
+	<div class="container">
+	
+
+		<h1>
+			List of Repositories <small> where leaders and followers
+				constructs a single answer</small>
+		</h1>
+		<table id="repoTable" class="table">
+			<tr>
+				<th>기트아이디</th>
+				<th>기트리파지토리</th>
+				<th>게시판제목</th>
+				<th>컨텐트</th>
+			</tr>
+		</table>
+	</div>
 
 
 

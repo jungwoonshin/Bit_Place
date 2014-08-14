@@ -10,12 +10,12 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shin.dao.RepositoryDao;
 import com.shin.vo.Content;
+import com.shin.vo.Member;
 
 @Controller
 @RequestMapping("/repo")
@@ -31,18 +31,18 @@ public class RepositoryControl {
 			HttpSession session,
 			ServletResponse response)
 					throws Exception {
-		
-		
-		
-		ModelAndView mv = new ModelAndView();
+		Member member = (Member) session.getAttribute("member");
 
-		String user_email = "test1@test.com";
+		ModelAndView mv = new ModelAndView();
+		
+		String user_email = member.getEmail();
+		
+
 		System.out.println("user_email: " + user_email);
-		//로그인을 가정하기 위해 임시적으로 컨트롤러에서 세션 객체에 user email값을 입력한다. 
-		session.setAttribute("user_email", user_email);
+		
 		
 		//session에서 받아온 유저의 이메일 주소를 토대로 데이터베이스에서 mno값을 읽어온다. 
-		int mno = repositoryDao.selectMno((String) session.getAttribute("user_email"));
+		int mno = repositoryDao.selectMno(user_email);
 		System.out.println("mno: " + mno);
 		//로그인 한 유저의 기본 groupNo를 받아온다. 
 		int groupNo = repositoryDao.selectGroupNo(mno);

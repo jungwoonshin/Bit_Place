@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shin.dao.MemberDao">
+
+  <resultMap type="member" id="memberMap">
+    <id column="mno" property="mno"/>
+    <result column="email" property="email"/>
+    <result column="pwd" property="pwd"/>
+    <result column="git_id" property="git_id"/>
+    <result column="git_pwd" property="git_pwd"/>
+    <result column="name" property="name"/>
+  </resultMap>
+  
+  <select id="exist" parameterType="map" resultMap="memberMap">
+    select *
+		from bit_members 
+		where email=#{email} and pwd=#{pwd}
+  </select>
+  
+  <insert id="insert" parameterType="member">
+    insert into bit_members (
+            mno, email, pwd, git_id, 
+            git_pwd, name)
+    values (
+            #{mno}, #{email}, #{pwd}, #{git_id},
+            #{git_pwd}, #{name})
+  </insert>
+  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

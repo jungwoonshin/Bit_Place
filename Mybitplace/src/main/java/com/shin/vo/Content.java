@@ -17,7 +17,7 @@ public class Content {
 	private Date edited_date_f;
 	private Date edited_date_l;
 	private String content;
-	private int group_no;
+	private int groupno;
 	private String git_repository;
 	private String git_id;
 	private String git_pwd;
@@ -107,10 +107,10 @@ public class Content {
 		this.content = content;
 	}
 	public int getGroup_no() {
-		return group_no;
+		return groupno;
 	}
 	public void setGroup_no(int group_no) {
-		this.group_no = group_no;
+		this.groupno = group_no;
 	}
 	public String getGit_repository() {
 		return git_repository;
@@ -146,7 +146,7 @@ public class Content {
 				+ ", content_title=" + content_title + ", count=" + count
 				+ ", edited_date_f=" + edited_date_f + ", edited_date_l="
 				+ edited_date_l + ", content=" + content + ", group_no="
-				+ group_no + ", git_repository=" + git_repository + ", git_id="
+				+ groupno + ", git_repository=" + git_repository + ", git_id="
 				+ git_id + ", git_pwd=" + git_pwd + ", git_oauthtoken="
 				+ git_oauthtoken + "]";
 	}
