@@ -27,7 +27,6 @@ import com.shin.vo.Member;
 public class RepositoryControl {
 	static Logger logger = Logger.getLogger(RepositoryControl.class);
 
-
 	@Autowired
 	RepositoryDao repositoryDao;
 
@@ -46,9 +45,12 @@ public class RepositoryControl {
 		//session에서 받아온 유저의 이메일 주소를 토대로 데이터베이스에서 mno값을 읽어온다. 
 		int mno = repositoryDao.selectMno(user_email);
 		System.out.println("mno: " + mno);
+		
 		//로그인 한 유저의 기본 groupNo를 받아온다. 
 		int groupNo = repositoryDao.selectGroupNo(mno);
 		System.out.println("groupNo: "  + groupNo);
+		
+		
 		//유저의 mno값을 이용하여 속한 클래스 정보를 받아온다. 
 
 		List<String> classNames = repositoryDao.selectClass(mno);
@@ -58,7 +60,12 @@ public class RepositoryControl {
 		//groupNo를 이용하여 그 그룹의 모든 컨텐트 정보를 가져온다. 
 		List<Content> contentInClass = repositoryDao.selectContents(groupNo);
 		mv.addObject("contentInClass", contentInClass);
+		
+		
 		mv.setViewName("/repo/json/RepositoryList");
+		
+		
+		
 		return mv;
 	}
 
@@ -78,17 +85,26 @@ public class RepositoryControl {
 		
 		JsonArray tree_jsonArray = MyGit.getMainTree(selectedContent.get(0).getGit_id(), selectedContent.get(0).getGit_repository());
 		model.addAttribute("tree_jsonArray", tree_jsonArray);		
-		
 		return "/repo/json/selectcontent";
 	}
 
+	@RequestMapping(value="/selecttree", method=RequestMethod.GET)
+	public String selectTree(
+			@RequestParam() String tree_sha,
+			@RequestParam() String repo_id,
+			@RequestParam() String repo_name,
+			Model model
+			){
+		JsonArray tree_sha_jsonArray = MyGit.getTreeBySha(repo_id, repo_name, tree_sha);
+		model.addAttribute("tree_sha_jsonArray", tree_sha_jsonArray);		
+		return "/repo/json/selecttree";
+	}
+	
+	
+	
+	
+	
 
-
-
-
-
-
-
-
+	
 
 }

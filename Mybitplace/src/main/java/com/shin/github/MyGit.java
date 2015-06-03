@@ -180,6 +180,22 @@ public class MyGit {
 		return jsonArrayTree;
 	}
 	
+	public static JsonArray getTreeBySha(String username, String reponame, String tree_sha){
+		Github github = new RtGithub();
+		Repo repo = github.repos().get(
+				new Coordinates.Simple(username,reponame)
+		);
+		JsonArray jsonArrayTree =null;
+		try {
+			jsonArrayTree= repo.git().trees().get(tree_sha).json().getJsonArray("tree");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return jsonArrayTree;
+	}
+	
+	
+	
 	public static void main(String[] args) throws Exception {
 		
 		
